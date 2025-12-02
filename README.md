@@ -360,7 +360,7 @@ int main(int argc, char **argv)
     CHECK(cudaMemcpy(gpuRef, d_C, nBytes, cudaMemcpyDeviceToHost));
 
     if(iprintf)  printData("setRowReadRow       ", gpuRef, nx * ny);
-CHECK(cudaMemset(d_C, 0, nBytes));
+    CHECK(cudaMemset(d_C, 0, nBytes));
     setColReadCol<<<grid, block>>>(d_C);
     CHECK(cudaMemcpy(gpuRef, d_C, nBytes, cudaMemcpyDeviceToHost));
 
